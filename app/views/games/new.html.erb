@@ -1,15 +1,17 @@
-<h1>New Game</h1>
+<div class="d-flex flex-column align-items-center text-center">
+  <h1>New Game</h1>
 
-<ul class="list-group list-group-horizontal">
-  <% @letters.each do |l| %>
-    <li class="list-group-item"><%= l %></li>
-  <% end %>
-</ul>
+  <ul class="list-group list-group-horizontal">
+    <% @letters.each do |l| %>
+      <li class="list-group-item"><%= l %></li>
+    <% end %>
+  </ul>
 
-<form action="/score" method="post" data-turbo="false" class="form-control">
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <label for="word">What's the longest word you can make?</label>
-  <input type="text" id="word" name="word">
-  <input type="hidden" name="letters" value="<%= @letters.join %>">
-  <input type="submit" value="Go!" class="btn btn-primary">
-</form>
+  <form action="/score" method="post" data-turbo="false" class="form-control p-2 mt-2">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <label for="word">What's the longest word you can make?</label>
+    <input type="text" id="word" name="word">
+    <input type="hidden" name="letters" value="<%= @letters.join %>">
+    <input type="submit" value="Go!" class="btn btn-primary">
+  </form>
+</div>
